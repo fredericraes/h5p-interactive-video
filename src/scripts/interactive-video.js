@@ -1249,9 +1249,10 @@ InteractiveVideo.prototype.attachControls = function ($wrapper) {
         closeMoreMenuIfExpanded();
       }
       else {
-        // Opening
+        // Opening, closing other buttons
         $button.attr('aria-expanded', 'true');
-        $menu.addClass('h5p-show');
+        $menu.addClass('h5p-show').siblings('[role=dialog]').removeClass('h5p-show');
+        $button.siblings('[aria-expanded]').attr('aria-expanded', 'false');
         $menu.find('[tabindex="0"]').focus();
       }
     };
